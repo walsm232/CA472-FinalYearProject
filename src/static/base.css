@@ -1,0 +1,489 @@
+/* Styling for Base HTML file */
+/* !important tag is needed on entries in order to override certain Bootstrap styling */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,700');
+
+/* Nav Item Text Colours */
+.nav-item a {
+    color: black !important;
+}
+
+/* Nav Item Hover Colours */
+.nav-item a:hover {
+    color:mediumslateblue !important;
+}
+
+/* Dropdown Items Text Colour */
+.dropdown-menu a {
+    color: black !important;
+}
+
+/* Carousel Item Height */
+.carousel-inner > .carousel-item {
+    height: 750px;
+  }
+
+/* Carousel Text Alignment */
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* login icons */
+.fa-users {
+    font-size: 3em;
+    margin: 0.5rem;
+}
+
+/* Pencil Icon homepage */ 
+.fa-pencil-alt {
+    color: #f0ad4e;
+    font-size: 2em;
+    margin: 0.5rem;
+}
+/* Comment Icon Homepage */
+.fa-comments {
+    color: #f0ad4e;
+    font-size: 2em;
+    margin: 0.5rem;
+}
+
+/* Book icon homepage */ 
+.fa-book {
+    color: #f0ad4e;
+    font-size: 2em;
+    margin: 0.5rem;
+}
+
+/* Social Buttons Homepage */
+.social a {
+    font-size: 2em;
+    padding: 3rem;
+}
+
+.fa-twitter {
+    color: #00acee;
+
+}
+
+.fa-instagram {
+    color: #C13584
+}
+
+.fa-twitter:hover,
+.fa-instagram:hover,
+.fa-facebook:hover {
+    color: black;
+}
+
+/* Login Card Style */
+.user_card {
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+
+}
+
+.form_container {
+    margin-top: 20px;
+}
+
+#form-title{
+    color: black;
+}
+/* Login Button */
+.login_btn {
+    width: 100%;
+    background: #ff6600 !important;
+    color: white !important;
+}
+.login_btn:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+.login_container {
+    padding: 0 2rem;
+}
+/* Login text style */
+.input-group-text {
+    background: blue !important;
+    color: white !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+/* Student Registration Card */
+.register-container {
+    margin: 0; 
+    padding: 10%;
+    height: 200%;
+    background: white url("images/back4.jpg") no-repeat;
+}
+/* Container Style for the Login Page */
+.login-container {
+    margin: 0; 
+    padding: 13%;
+    height: 100%;
+    background: white url("images/back4.jpg") no-repeat;
+}
+
+/* Apply Button Style */
+.apply_btn {
+    margin-top: 2%;
+    width: 100%;
+    background: #ff6600 !important;
+    color: white !important;
+}
+/* Tutor Apply Container */
+
+.apply-container {
+    margin: 0; 
+    padding: 13%;
+    height: 200%;
+    background: white url("images/back4.jpg") no-repeat;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #fff;
+}
+
+/* Image Gap on About us Page */
+.picgap {
+    padding: 70px 0px;
+}
+
+.aboutus {
+    padding: 40px 0px;
+    background: radial-gradient(circle, rgba(226,236,235,1) 0%, rgba(88,113,255,1) 100%);
+}
+
+/* Founder Card Style */
+.founder {
+    padding: 30px 0px;
+}
+
+
+/* Update Profile Styling */
+.update_profile_card {
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: white;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+.update_profile_container {
+    padding: 0 2rem;
+}
+.update-profile-container {
+    margin: 0; 
+    padding: 10%;
+    height: 200%;
+    background: white url("images/back4.jpg") no-repeat;
+}
+
+.modal-dialog {
+    background-color: grey;
+}
+
+.row-card {
+    padding: 5%;
+}
+
+/* styling for the post cards on the networking page */
+.card-post {
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+.card-profile {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    height: 370px;
+    position: relative;
+
+}
+
+.img-profile{
+    position: relative;
+    left: 27%;
+}
+.deletebutton {
+    float: right;
+}
+
+.img-circle {
+    height: 30px;
+}
+/*styling on the comments */
+.callout-info {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #5bc0de;
+    background: linear-gradient(0deg, rgba(217,217,217,0.9631039915966386) 19%, rgba(246,246,246,1) 100%);
+}
+
+.callout-warning {
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+    top: 5px;
+    padding: 15px;
+    margin: 20px 5px;
+
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #5bc0de;
+    background: white;
+}
+.netcon {
+    background: url("images/netimage.jpg");
+}
+.postform {
+    padding-top: 5%;
+}
+
+.postbtn {
+    float: right;
+    position: relative;
+    bottom: 40px;
+}
+
+.ad-card {
+    margin-bottom: 2.77rem;
+}
+
+.payment-success {
+    background: white url("images/back4.jpg") no-repeat;
+    padding: 2%;
+}
+
+.card-pay {
+    width: 18rem;
+}
+
+.faq {
+    padding: 40px 0px;
+    background: radial-gradient(circle, rgba(226,236,235,1) 0%, rgba(88,113,255,1) 100%);
+}
+
+.legal {
+    padding: 40px 0px;
+    background: radial-gradient(circle, rgba(226,236,235,1) 0%, rgba(88,113,255,1) 100%);
+}
+
+.book-marketplace {
+    background: url("images/back4.jpg");
+}
+
+.listbook {
+    position: relative;
+    left: 46%;
+}
+
+.callout-danger {
+    padding: 20px;
+    margin: 20px 0;
+    border: 3px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: red;
+    background: white;
+}
+
+.alert-danger {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+
+}
+
+.wrapper{
+    background-image: url("images/netimage.jpg");
+    background-size: cover;
+}
+
+.book-card{
+    height: 480px;
+}
+
+
+/*discussion board styling*/
+/* taken from bootdey.com and changed to style the discussion board page */
+/*Reference: https://www.bootdey.com/snippets/view/Forum-post-list#html */
+
+.white-bg {
+    background-color: #ffffff;
+    }
+  
+.forum-item {
+    margin: 10px 0;
+    padding: 10px 0 20px;
+    border-bottom: 1px solid #f1f1f1;
+    }
+.views-number {
+    font-size: 24px;
+    line-height: 18px;
+    font-weight: 400;
+    }
+
+.forum-item small {
+    color: #999;
+}
+
+.forum-item .forum-sub-title {
+    color: #999;
+    margin-left: 50px;
+}
+.forum-title {
+    margin: 15px 0 15px 0;
+}
+.forum-info {
+    text-align: center;
+}
+.forum-desc {
+    color: #999;
+}
+.forum-icon {
+    float: left;
+    width: 30px;
+    margin-right: 20px;
+    text-align: center;
+}
+a.forum-item-title {
+    color: inherit;
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+a.forum-item-title:hover {
+    color: inherit;
+}
+.forum-icon .fa {
+    font-size: 30px;
+    margin-top: 8px;
+    color: #9b9b9b;
+}
+
+.ibox-title {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #ffffff;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 3px 0 0;
+    color: inherit;
+    margin-bottom: 0;
+    padding: 14px 15px 7px;
+    min-height: 48px;
+}
+.ibox-content {
+    background-color: #ffffff;
+    color: inherit;
+    padding: 15px 20px 20px 20px;
+    border-color: #e7eaec;
+    border-image: none;
+    border-style: solid solid none;
+    border-width: 1px 0;
+}
+.ibox-footer {
+    color: inherit;
+    border-top: 1px solid #e7eaec;
+    font-size: 90%;
+    background: #ffffff;
+    padding: 10px 15px;
+}
+
+.message-input {
+    height: 90px !important;
+}
+
+.fa-star {
+    color: #1ab394;
+}
+.mid-icon {
+    font-size: 66px !important;
+}
+.m-b-sm {
+    margin-bottom: 10px;
+}
+
+.tutor-card {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    height: 480px;
+    position: relative;
+}
+
+.tutor-listings {
+    background: rgb(240,240,240);
+    background: linear-gradient(4deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.profile-card {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    height: 380px;
+    position: relative;
+}
+
+.all-profile-listings {
+    background: rgb(240,240,240);
+    background: linear-gradient(4deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.book-card {
+    margin-bottom: 2rem;
+    height: 480px;
+    position: relative;
+}
+
+.my-profile {
+    background: rgb(240,240,240);
+    background: linear-gradient(4deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.all-received-requests {
+    background: rgb(240,240,240);
+    background: linear-gradient(4deg, rgba(240,240,240,1) 0%, rgba(255,255,255,1) 100%);
+}
+
+.request-card {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    height: 350px;
+    position: relative;
+}

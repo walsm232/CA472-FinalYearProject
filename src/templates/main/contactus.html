@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Contact Us
+{% endblock title %}
+
+{% block content %}
+<!-- Contact Us Container -->
+<div class="apply-container">
+    <div class ="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card w-75">
+                <div class="d-flex justify-content-center">
+                    <h3> Contact Us </h3>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h7> Please fill out the form below and a member of our team will get back to you. </h7>
+                </div>
+                <hr>
+                <!-- Form Definition and URL Link with CSRF Token -->
+                <form action="{% url 'ContactUs' %}" method="POST">
+                {% csrf_token %}
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <input type="text" name="subject" class="form-control mb-4" placeholder="Subject">
+                    </div>
+                    <div class="col-lg-8">
+                        <input type="email" name="message-email" class="form-control mb-4" placeholder="Email Address">
+                    </div>
+                    <div class="col-lg-8">
+                        <textarea type="text" name="message" class="form-control mb-4" placeholder="Enter your message here. Please also leave a contact phone number if necessary."></textarea> 
+                    </div>
+                    <div class="col-8">
+                        <button type="submit" class="btn apply_btn"> Send </button>
+                    </div>
+                    {{ form.errors }}
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer class="bg-light text-dark pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            <!-- Column One -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Commited to Students</h6>
+                <hr class="mb-4">
+                <p> We at Student Network are fully committed to providing the best possible 
+                service to students around Ireland.</p>
+            </div>
+            <!-- Column Two -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> About Us </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/aboutus" class="text-dark"> About Us </a>
+                </p>
+                <p>
+                    <a href="/legal" class="text-dark"> Legal </a>
+                </p>
+                <p>
+                    <a href="/faqs" class="text-dark"> FAQ's </a>
+                </p>
+            </div>
+            <!-- Column Three -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Helpful Links </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/login" class="text-dark"> Login </a>
+                </p>
+                <p>
+                    <a href="/register" class="text-dark"> Register </a>
+                </p>
+                <p>
+                    <a href="/apply" class="text-dark"> Apply as a Tutor </a>
+                </p>
+            </div>
+            <!-- Column Four -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Contact </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/contactus" class="text-dark"> Contact Us </a>
+                </p>
+                <p>
+                    <i class="fas fa-home mr-3"> </i> DCU
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"> </i> studentnetwork.ire@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+    <!-- Copyright -->
+    <div class="text-center p-2" >
+        © 2021 Copyright:
+        <a class="text-dark" href=""> Student Network </a>
+    </div>
+</footer>
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

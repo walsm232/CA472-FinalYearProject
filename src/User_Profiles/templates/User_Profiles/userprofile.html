@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block content %}
+<div class="container py-4">
+    <header class="text-center">
+        <h1 class="display-6 font-weight-bold"> Profile </h1>
+    </header>
+</div>
+
+<!-- Profile Content Container -->
+<div class="my-profile">
+    <div class="container">
+        <div class="row profile">
+            <!-- Left Display -->
+            <div class="col-md-5">
+                <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                    <div class="card-body">
+                        <div class="d-flex flex-column align-items-center text-center">
+                            <!-- Displays Profile Picture linked to User Account -->
+                            <img src={{profile.profile_picture.url}} alt="" class="rounded-circle" width="150" height="150">
+                            <div class="mt-3">
+                            <h4> {{ profile.first_name}} {{ profile.last_name }} </h4>
+                            <p class="text-secondary mb-1"> {{ profile.university }} </p>
+                            <p class="text-muted font-size-sm"> {{ profile.course }} </p>
+                            <p class="text-muted font-size-sm"> {{ profile.year }} </p>
+                            <!-- Modal Trigger Button for Edit Profile -->
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#UpdateProfileModal">
+                                Edit Profile
+                            </button>
+
+                            <!-- Edit Profile Modal -->
+                            <div class="modal fade" id="UpdateProfileModal" tabindex="-1" aria-labelledby="Update-Profile-Modal" aria-hidden="true">
+                                <div class="modal-dialog modal-lg ">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="Update-Profile-Modal"> Edit Profile </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <!-- Modal Body Content -->
+                                        <div class="modal-body">
+                                            <form action="" method="POST" enctype="multipart/form-data">
+                                                <!-- CSRF token is used to prevent Cross Site Request Forgeries, needed for protection against malicious attacks -->
+                                                {% csrf_token %}
+                                                <!-- First Name Field -->
+                                                <div class="input-group mb-3">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                    </div>
+                                                    {{ form.first_name }}
+                                                </div>
+                                                <!-- Last Name Field -->
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                                    </div>
+                                                    {{ form.last_name }}
+                                                </div>
+                                                <!-- Bio Field -->
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-address-card"></i></span>
+                                                    </div>
+                                                    {{ form.bio }}
+                                                </div>
+                                                <!-- University Field -->
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                                    </div>
+                                                    {{ form.university }}
+                                                </div>
+                                                <!-- Course Field -->
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                                    </div>
+                                                    {{ form.course }}
+                                                </div>
+                                                <!-- Year Field -->
+                                                <div class="input-group mb-2">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-graduation-cap"></i></span>
+                                                    </div>
+                                                    {{ form.year }}
+                                                </div>
+                                                <!-- Profile Picture Field -->
+                                                <div class="input-group mb-2" enctype="multipart/form-data">
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i class="fas fa-image"></i></span>
+                                                    </div>
+                                                    {{ form.profile_picture }}
+                                                </div>
+                                                {{ form.errors }}
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
+                                                    <button type="submit" class="btn btn-primary"> Save </button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Display -->
+        <div class="col-md-7">
+            <div class="bio shadow-lg p-3 mb-5 bg-white rounded">
+                <h4> Bio </h4>
+                <p> {{ profile.bio }} </p>
+            </div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td> Number of Friends </td>
+                        <td>{{ profile.FriendsListCount }}</td>
+                    </tr>
+                    <td> Friends </td>
+                    <td>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#friendsListModal">
+                            View Friends List
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="friendsListModal" tabindex="-1" role="dialog" aria-labelledby="friendsListModal" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="friendsListModal"> Friends List </h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                <div class="modal-body">
+                                    {% for friend in profile.FriendsList %}
+                                    <ul>
+                                        <li> <i class="fas fa-user"></i> {{ friend.first_name }} {{ friend.last_name}} [{{ friend }}] </li>
+                                    </ul>
+                                    {% endfor %}
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    </tr>
+                    <tr>
+                        <td> Number of Posts </td>
+                        <td>{{ profile.PostsListCount }}</td>
+                    </tr>
+                </tbody>
+            </table> 
+        </div>
+        <div class="col-md-4">
+            {% for post in posts %}
+                {% ifequal request.user post.author.user %}
+                    {{ post.content }}
+                {% endifequal %}
+            {% endfor %}
+        User Posts Go Here
+        </div>
+    </div>
+</div>
+</div>
+<hr>
+
+<!-- All Callable Profile Fields -->
+
+<!-- {{ profile.profile_picture.url }}
+{{ profile.profile_picture }}
+{{ profile.first_name }}
+{{ profile.last_name }}
+{{ profile.bio}}
+{{ profile.email }}
+{{ profile.university }}
+{{ profile.course }}
+{{ profile.year }}
+{{ profile.profile_picture }}
+{{ profile.FriendsListCount }}
+<ul>
+    {% for friend in profile.FriendsList %}
+    <li> {{ friend }} </li>
+    {% endfor %}
+</ul> -->
+
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

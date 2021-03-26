@@ -1,0 +1,239 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Homepage
+{% endblock title %}
+
+{% block content %}
+<!-- Cookie Banner -->
+<link rel="stylesheet" type="text/css" href="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.css"/>
+<script src="https://cdn.wpcc.io/lib/1.0.2/cookieconsent.min.js" defer></script>
+<script>window.addEventListener("load", function(){window.wpcc.init({"border":"thin","corners":"normal","colors":{"popup":{"background":"#f6f6f6","text":"#000000","border":"#555555"},"button":{"background":"#555555","text":"#ffffff"}},"position":"bottom","content":{"href":"http://127.0.0.1:8000/legal","message":"We use cookies to ensure that you get the best experience on our website."}})});</script>
+
+<!-- Carousel Layout for Image Slideshow with Centered Text --> 
+<div id="CarouselSlideshow" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'images/back1.jpeg' %}" class="d-block w-100" alt="Students sitting at a table outside">
+        </div>
+        <div class="carousel-caption">
+            <h1 class="display-1"> STUDENT NETWORK </h1>
+            <h4 class="display-6"> Connecting like-minded students across Ireland </h4>
+            <a class="btn btn-warning btn-lg" href="/register" role="button"> Register </a>
+            <a class="btn btn-outline-light btn-lg" href="/apply" role="button"> Apply as Tutor </a>
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/back2.jpeg' %}" class="d-block w-100" alt="Students celebrating outdoors">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'images/back3.jpeg' %}" class="d-block w-100" alt="Students graduating from university standing outdoors">
+        </div>
+    </div>
+    <!-- Carousel Previous Image Icon -->
+    <a class="carousel-control-prev" href="#CarouselSlideshow" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"> </span>
+        <span class="sr-only"> Previous </span>
+    </a>
+    <!-- Carousel Next Image Icon -->
+    <a class="carousel-control-next" href="#CarouselSlideshow" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"> </span>
+        <span class="sr-only"> Next </span>
+    </a>
+</div>
+
+<!-- Jumbotron Layout with Learn More button for taking users to the About Us page -->
+<div class="container-fluid">
+    <div class="row jumbotron">
+        <div class"col-xl-10">
+            <h1 class="display-5"> About Us </h1>
+            <p class="display-5"> We're a social networking platform connecting students accross Ireland and providing them with access to valuable resources enabling them to excel in college. </p>
+            <a class="btn btn-outline-info" href="/aboutus" role="button"> Learn more </a>
+        </div>
+    </div>
+</div>
+
+<!-- Welcome Header and Lead Paragraph -->
+<div class="container-fluid padding">
+    <div class="row welcome text-center">
+        <div class="col-12">
+            <h1 class="display-4"> Built for Students. <br> By Students. </h1>
+        <hr>
+        </div>
+        <div class="col-12">
+            <p class="lead"> We're Ireland's first student social networking platform providing you with access to a range of valuable resources, enabling you to excel in college. </p> <br>
+        </div>
+    </div>
+</div>
+
+<!-- Short Information Section -->
+<div class="container-fluid paddng">
+    <!-- Top Row -->
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fas fa-users"> </i>
+            <h3> NETWORKING </h3>
+            <p> We offer you the ability to connect, share, interact and debate with students across Ireland. </p> <br>
+        </div>
+    </div>
+    <!-- Bottom Row -->
+    <div class="row text-center padding">
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fas fa-pencil-alt"> </i>
+            <h3> TUTORING </h3>
+            <p> We provide you with direct access to highly qualified and skilled tutors, giving you a competitive edge. </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fas fa-comments"> </i>
+            <h3> DISCUSSION </h3>
+            <p> We host a discussion board, allowing you to discuss specific topics with other students related to your course. </p>
+        </div>
+        <div class="col-xs-12 col-sm-6 col-md-4">
+            <i class="fas fa-book"> </i>
+            <h3> MARKETPLACE </h3>
+            <p> We offer a book marketplace facility, providing you with the ability to sell secondhand college books with ease. </p>
+        </div>
+    </div>
+</div>
+<br>
+
+<!-- Horizontal Divider -->
+<hr class="my-4">
+</div>
+
+<!-- Meet the Founders Heading -->
+<div class="container-fluid padding">
+<div class="row welcome text-center">
+    <div class="col-12">
+        <h1 class="display-4"> Meet the Founders </h1>
+    </div>
+</div>
+</div>
+
+<!-- Meet the Team Cards -->
+<div class="container">
+    <hr class="my-4">
+        <div class="row justify-content-center"> 
+            <!-- Card One -->
+            <div class="col-lg-4 col-md-6 col-sm-7 mt-3 "> 
+                <div class="card h-100" >
+                    <img class="card-img-top" src="{% static 'images/MeetTheTeam-Karl.png' %}" alt=""> 
+                    <div class="card-body"> 
+                        <h4 class="card-title"> Karl Hannigan </h4> 
+                        <p> Co-Founder / Developer </p> 
+                        <hr>
+                        <p class="card-text"> Karl is a 22 year old student currently completing his final year of Enterprise Computing at DCU. Blah blah Blah Blah Blah Blah Blah Blah Blah Blah
+                        </p> 
+                    </div> 
+                </div> 
+            </div> 
+            <!-- Card Two -->
+            <div class="col-lg-4 col-md-6 col-sm-7 mt-3 ml-5"> 
+                <div class="card h-100"> 
+                    <img class="card-img-top" src="{% static 'images/MeetTheTeam-Michael.png' %}" alt=""> 
+                    <div class="card-body"> 
+                        <h4 class="card-title"> Michael Walsh </h4>
+                        <p> Co-Founder / Developer </p> 
+                        <hr>
+                        <p class="card-text"> Michael is a 21 year old student currently completing his final year of Enterprise Computing at DCU. He has been interested in technology from a very young age and is passionate about shaping the future of students across Ireland.
+                        </p>  
+                    </div> 
+                </div> 
+            </div> 
+        </div>
+    <hr class="my-4">
+</div> 
+
+<!-- Social Media Icons -->
+<div class="container-fluid padding">
+    <div class="row text-center padding">
+        <div class="col-12">
+            <h3> Connect With Us </h3>
+        </div>
+        <div class ="col-12 social padding">
+            <a href="#"> <i class="fab fa-facebook"> </i></a>
+            <a href="https://twitter.com/StudentNetwork9"> <i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/StudentNetwork_IRE/"> <i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</div>
+<br>
+
+<!-- Footer -->
+<footer class="bg-light text-dark pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            <!-- Column One -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Commited to Students</h6>
+                <hr class="mb-4">
+                <p> We at Student Network are fully committed to providing the best possible 
+                service to students around Ireland.</p>
+            </div>
+            <!-- Column Two -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> About Us </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/aboutus" class="text-dark"> About Us </a>
+                </p>
+                <p>
+                    <a href="/legal" class="text-dark"> Legal </a>
+                </p>
+                <p>
+                    <a href="/faqs" class="text-dark"> FAQ's </a>
+                </p>
+            </div>
+            <!-- Column Three -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Helpful Links </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/login" class="text-dark"> Login </a>
+                </p>
+                <p>
+                    <a href="/register" class="text-dark"> Register </a>
+                </p>
+                <p>
+                    <a href="/apply" class="text-dark"> Apply as a Tutor </a>
+                </p>
+            </div>
+            <!-- Column Four -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Contact </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/contactus" class="text-dark"> Contact Us </a>
+                </p>
+                <p>
+                    <i class="fas fa-home mr-3"> </i> DCU
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"> </i> studentnetwork.ire@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+    <!-- Copyright -->
+    <div class="text-center p-2" >
+        © 2021 Copyright:
+        <a class="text-dark" href=""> Student Network </a>
+    </div>
+</footer>
+
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to Return Message in Console when a Document has Loaded Correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}
+

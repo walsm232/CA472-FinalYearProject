@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Networking
+{% endblock title %}
+
+{% block content %}
+<!-- Posts Container -->
+<div class="container-fluid netcon">
+    <div class="col-md-6 offset-md-3">
+        {% if postadded %}
+            <div class="alert alert-primary" role="alert"> Posted! </div>
+        {% endif%}
+        <div class="callout-warning mt-1">
+            <form action="" method="POST" class="postform" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class"postcontent">
+                    {{UserForm}}
+                </div> 
+              
+                <button type='submit' class="btn btn-warning postbtn" name="SubPostForm">Post</button>   
+            </form>
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-3 row-card">
+        <div class="col-md-6 offset-md-3">
+        {% for post in posts %}
+            <div class="card card-post">
+                <div class="content">
+                    <div class="delbutton">
+                        {% ifequal request.user post.author.user %}
+                            <a href="{% url 'posts:post-delete' post.pk %}"><button class="btn btn-info deletebutton">Delete</button></a>
+                        {% endifequal %}
+                    </div>
+                    <div class="pic and time since">
+                        <img class="avatar avatar-16 img-circle" src={{post.author.profile_picture.url}}/>
+                        {{post.author.first_name}} {{post.author.last_name}} - {{post.created|timesince}} ago 
+                    </div>
+                    <hr>
+                    {{post.content}}
+                </div>
+                <div class="content">
+                <br>
+                <form action="{% url 'posts:like-post-view' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name='post_id' value={{post.id}}>
+                    <button type="submit" class="btn btn-info">
+                    {% if profile not in post.liked.all %}
+                        <i class="fas fa-thumbs-up"></i>  
+                        Like
+                    {% else %}
+                        <i class="fas fa-thumbs-down"></i>
+                        Unlike
+                    {% endif %}
+                    </button>
+                    <!-- funtion for the likes counter -->
+                    {{post.NumberOfLikes}}
+                </form>
+            </div>
+            <i class="comment icon"></i>
+            <span> {{ post.NumberOfComments }} comments: </span>
+            <div>
+            {% if post.comment_set.all %}
+                {% for comment in post.comment_set.all %}
+                    <div class="callout callout-info">
+                        <img class="avatar avatar-16 img-circle" src={{comment.user.profile_picture.url}}/>
+                            <span>{{comment.user.first_name}} {{comment.user.last_name}} - {{comment.created|timesince}} ago</span>
+                            <div class='mt-1'>{{comment.body}}</div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            </div>
+            <form action="" method="POST" class="form">
+                {% csrf_token %}
+                <input type="hidden" name="post_id" value={{post.id}}>
+                {{ComForm}}
+                <button type='submit'class="btn btn-warning" name="SubCommentForm"> Comment </button>
+            </form>
+            </div>
+        {% endfor %}
+    </div>
+    <!--adcards-->
+    <div class="col-md-3">
+            <div class="card ad-card">
+                <div class="card-body">
+                    <h5 class="card-title">Asos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Asos.com</h6>
+                    <p class="card-text">The Best Brands and Newest Looks With Free Shipping and Returns For Ireland! Get Your 15% Student Discount Now!</p>
+                    <a href="https://www.asos.com/men/?channelref=paid+search&affid=10675&ppcadref=9815222128%7c98855411014%7ckwd-310681932618&gclid=Cj0KCQjwi7yCBhDJARIsAMWFScO4wcoO5FDv0R0dNRwQX2dYMq65Q1CJXQXx61uE_ezsGeYw_dCYq78aArquEALw_wcB&gclsrc=aw.ds" class="card-link">
+                        <img class="card-img-top" src="{% static 'images/asos.png' %}" alt=""> 
+                    </a>
+                </div>
+            </div>
+            <div class="card ad-card">
+                <div class="card-body">
+                    <h5 class="card-title">GradIreland</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">gradireland.com</h6>
+                    <p class="card-text">Your favourite graduate careers site! 123 Job Opportunities Right Now!</p>
+                    <a href="https://gradireland.com/" class="card-link">
+                        <img class="card-img-top" src="{% static 'images/gradireland.png' %}" alt=""> 
+                    </a>
+                </div>
+            </div>
+            <div class="card ad-card">
+                <div class="card-body">
+                    <h5 class="card-title">Asos</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Asos.com</h6>
+                    <p class="card-text">The Best Brands and Newest Looks With Free Shipping and Returns For Ireland! Get Your 15% Student Discount Now!</p>
+                    <a href="https://www.asos.com/men/?channelref=paid+search&affid=10675&ppcadref=9815222128%7c98855411014%7ckwd-310681932618&gclid=Cj0KCQjwi7yCBhDJARIsAMWFScO4wcoO5FDv0R0dNRwQX2dYMq65Q1CJXQXx61uE_ezsGeYw_dCYq78aArquEALw_wcB&gclsrc=aw.ds" class="card-link">
+                        <img class="card-img" src="{% static 'images/asos.png' %}" alt=""> 
+                    </a>
+                </div>
+            </div>
+            <div class="card ad-card">
+                <div class="card-body">
+                    <h5 class="card-title">GradIreland</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">gradireland.com</h6>
+                    <p class="card-text">Your favourite graduate careers site! 123 Job Opportunities Right Now!</p>
+                    <a href="https://gradireland.com/" class="card-link">
+                        <img class="card-img" src="{% static 'images/gradireland.png' %}" alt=""> 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

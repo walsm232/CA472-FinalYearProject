@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+About Us
+{% endblock title %}
+
+{% block content %}
+
+<!-- About Us Container-->
+<div class="container-fluid">
+<div class="row aboutus text-center">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <h2 class="h2w"> About Us </h2>
+    </div>  
+</div>
+</div>
+<hr>
+
+<!-- About Us Container 1 -->
+<!-- Split into md-6 for writing on one side of the page and image on the other -->
+<div class="container">
+    <div class="row picgap">
+        <div class="col-md-6">
+            <h4> Welcome to Student Network </h4>
+            <p> We're a social networking platform connecting students accross Ireland and providing them with access to valuable resources enabling them to excel in college. </p>
+            <p> We want to help students in colleges and universities accross Ireland get the most out their time in college! </p>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/about1.jpeg' %}" class="img-fluid">
+        </div>
+    </div>
+</div>
+
+<!-- About Us Container 2 -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'images/about2.jpeg' %}" class="img-fluid">
+        </div>
+        <div class="col-md-6">
+            <h4> Our Goal </h4>
+            <p> Before the development of this platform there was no dedicated student social networking platform on the market!</p>
+            <p> We believed that a platform was needed for students to interact, share, discuss and debate with each other. </p>
+            <p> We want to focus on allowing students to create valuable real world connections with the hopes of building meaningful friendships. </p>
+        </div>
+    </div>
+</div>
+
+<hr class="my-4">
+
+<!-- Meet The Team Container -->
+<div class="container">
+    <div class="row">
+    <div class="col-12 text-center">
+        <h3> Meet The Team </h3>
+    </div>
+    </div>
+</div>
+
+<!-- Founders Container -->
+<div class="container bg-light">
+    <div class="row founder text-center">
+        <!-- Founder 1 Class -->
+        <div class="col-md-6">
+            <h5> Karl Hannigan </h5>
+            <p> Co-Founder </p>
+            <!-- Founder 1 Image -->
+            <img src="{% static 'images/MeetTheTeam-Karl.png' %}" height="80" width="80"> 
+        </div>
+        <!-- Founder 2 Class -->
+        <div class="col-md-6">
+            <h5> Michael Walsh </h5>
+            <p> Co-Founder </p>
+            <!-- Founder 2 Image -->
+            <img src="{% static 'images/MeetTheTeam-Michael.png' %}" height="80" width="80"> 
+        </div>
+    </div>
+</div>
+ 
+<!-- Staff Container -->
+<div class="container">
+    <div class="row text-center">
+        <!-- Staff Member 1 Class -->
+        <div class="col-md-3 bg-light">
+            <h5> Jacinta Reilly </h5>
+            <p> Tutor Expert </p>
+            <!-- Staff Member 1 Image -->
+            <img src="{% static 'images/MeetTheTeam-Jacinta.png' %}" height="80" width="80"> 
+        </div>
+        <!-- Staff Member 2 Class -->
+        <div class="col-md-3 bg-light">
+            <h5> Muhammad Wasart </h5>
+            <p> Marketing Specialist </p>
+            <!-- Staff Member 2 Image -->
+            <img src="{% static 'images/MeetTheTeam-Muhamed.png' %}" height="80" width="80"> 
+        </div>
+        <!-- Staff Member 3 Class -->
+        <div class="col-md-3 bg-light">
+            <h5> Tony Murphy </h5>
+            <p> Quality Assurance Tester </p>
+            <!-- Staff Member 3 Image -->
+            <img src="{% static 'images/MeetTheTeam-Tony.png' %}" height="80" width="80"> 
+        </div>
+        <!-- Staff Member 4 Class -->
+        <div class="col-md-3 bg-light">
+            <h5> Sarah Keogh </h5>
+            <p> Site Moderator </p>
+            <!-- Staff Member 4 Image -->
+            <img src="{% static 'images/MeetTheTeam-Sarah.png' %}" height="80" width="80"> 
+        </div>
+    </div>
+</div>
+<hr class="my-4">
+
+<!-- Footer -->
+<footer class="bg-light text-dark pt-5 pb-4">
+    <div class="container text-center text-md-left">
+        <div class="row text-center text-md-left">
+            <!-- Column One -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Commited to Students</h6>
+                <hr class="mb-4">
+                <p> We at Student Network are fully committed to providing the best possible 
+                service to students around Ireland.</p>
+            </div>
+            <!-- Column Two -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> About Us </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/aboutus" class="text-dark"> About Us </a>
+                </p>
+                <p>
+                    <a href="/legal" class="text-dark"> Legal </a>
+                </p>
+                <p>
+                    <a href="/faqs" class="text-dark"> FAQ's </a>
+                </p>
+            </div>
+            <!-- Column Three -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Helpful Links </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/login" class="text-dark"> Login </a>
+                </p>
+                <p>
+                    <a href="/register" class="text-dark"> Register </a>
+                </p>
+                <p>
+                    <a href="/apply" class="text-dark"> Apply as a Tutor </a>
+                </p>
+            </div>
+            <!-- Column Four -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+                <h6 class="text-uppercase mb-4 font-weight-bold text-info"> Contact </h6>
+                <hr class="mb-4">
+                <p>
+                    <a href="/contactus" class="text-dark"> Contact Us </a>
+                </p>
+                <p>
+                    <i class="fas fa-home mr-3"> </i> DCU
+                </p>
+                <p>
+                    <i class="fas fa-envelope mr-3"> </i> studentnetwork.ire@gmail.com
+                </p>
+            </div>
+        </div>
+    </div>
+    <hr class="mb-4">
+    <!-- Copyright -->
+    <div class="text-center p-2" >
+        © 2021 Copyright:
+        <a class="text-dark" href=""> Student Network </a>
+    </div>
+</footer>
+
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

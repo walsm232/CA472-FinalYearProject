@@ -1,0 +1,82 @@
+<!-- BootStrap v4.0 is used to build the navigation bar and the site used as a reference for creation is linked below -->
+<!-- Reference: https://getbootstrap.com/docs/4.5/components/navbar/#nav -->
+
+<!-- Left Navigation Menu -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Brand Text with Link to Homepage: Student Network -->
+    {% if request.user.is_authenticated %}
+    <a class="navbar-brand" href="/networking"> STUDENT NETWORK </a>
+    {% else %}
+    <a class="navbar-brand" href="/"> STUDENT NETWORK </a>
+    {% endif %}
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"> </span>
+    </button>
+    <div class="collapse navbar-collapse" id="Links">
+        <ul class="navbar-nav mr-auto">
+            <!-- Navigation Bar Items: Home, Networking, and Tutoring, Discussion, Marketplace -->
+            {% if request.user.is_anonymous %}
+            <li class="nav-item">
+                <a class="nav-link" href="/"> Home </a>
+            </li>
+            {% endif %}
+            {% if request.user.is_authenticated %}
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Networking
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/networking"> Newsfeed </a>
+                    <div class="dropdown-divider"> </div>
+                    <a class="dropdown-item" href="/profiles/"> All Profiles </a>
+                    <a class="dropdown-item" href="/profiles/addfriends"> Add Friends </a>
+                    <a class="dropdown-item" href="/profiles/receivedrequests"> Friend Requests </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/tutoring"> Tutoring </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/discussionboard"> Discussion </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/bookmarketplace"> Marketplace </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/game"> Game </a>
+            </li>
+            {% endif %}
+        </ul>
+      </ul>
+    </div>
+
+    <!-- Right Navigation Menu -->
+    <div class="collapse navbar-collapse" id="Accounts">
+        <ul class="navbar-nav ml-auto">
+            {% if request.user.is_authenticated %}
+            <li>
+                <!-- Search for Friends Form -->
+                <form class="form-inline">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search for friends..." aria-label="Search">
+                    <button class="btn btn-primary my-2 my-sm-0" type="submit"> Search </button>
+                </form>
+            </li>
+            <li>
+            <!-- Dropdown Menu Displaying Username with View Profile and Logout -->
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  {{ request.user }}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="/profiles/myprofile"> View Profile </a>
+                    <div class="dropdown-divider"> </div>
+                    <a class="dropdown-item" href="/logout"> Logout </a>
+                </div>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="/login"> Login </a>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>

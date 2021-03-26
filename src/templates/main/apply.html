@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Apply
+{% endblock title %}
+
+{% block content %}
+
+<!-- Return Message after Form Submission -->
+{% if name %}
+<center>
+<h2> Thanks {{ name }}!</h2>
+<p> We recieved your application, We will get back to you shortly </p>
+</center>
+
+{% else %}
+<!-- Apply Container -->
+<div class="apply-container">
+    <div class ="container h-100">
+        <div class="d-flex justify-content-center h-100">
+            <div class="user_card w-75">
+                <div class="d-flex justify-content-center">
+                    <h3> Tutor Application </h3>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <h7> Please fill out the form below and a member of our team will get back to you. </h7>
+                </div>
+                <hr>
+                <!-- Form Definition and URL Link with CSRF Token -->
+                <form action="{% url 'Apply' %}" method="POST">
+                {% csrf_token %}
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <!-- Form Name Field -->
+                        <input type="text" name="name" class="form-control mb-4" placeholder="Full Name">
+                    </div>
+                    <div class="col-lg-8">
+                        <!-- Form Email Field -->
+                        <input type="email" name="message-email" class="form-control mb-4" placeholder="Email Address">
+                    </div>
+                    <div class="col-lg-8">
+                        <!-- Form Message Field -->
+                        <textarea type="text" name="message" class="form-control mb-4" placeholder="Tell us a bit about yourself"></textarea> 
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="custom-file">
+                            <!-- File Upload -->
+                            <input type="file" name="CV" class="custom-file-input" id="customFile" accept=".pdf, .doc, .docx">
+                            <label class="custom-file-label" for="customFile"> Upload Your CV (.pdf, .doc, .docx) </label>
+                        </div>
+                    </div>
+                    <div class="col-8">
+                        <!-- Form Submit Button -->
+                        <button type="submit" class="btn apply_btn"> Send Application </button>
+                    </div>
+                    {{ form.errors }}
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% endblock content %}
+
+{% block scripts %}
+<!-- Script to show uploaded FileName so user can see their upload was successful. -->
+<script>
+    $('#customFile').on('change',function(){
+        var fileName = $(this).val().replace('C:\\fakepath\\', " ");
+        $(this).next('.custom-file-label').html(fileName);
+    })
+</script>
+
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

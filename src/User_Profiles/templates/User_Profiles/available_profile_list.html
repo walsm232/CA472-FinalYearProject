@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Add Friends
+{% endblock title %}
+
+{% block content %}
+
+<ul>
+    {% for profile in available_profile_list %}
+    <li> {{ profile }} </li>
+    {% endfor %}
+</ul>
+
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

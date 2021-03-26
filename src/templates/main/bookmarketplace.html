@@ -1,0 +1,338 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Book Marketplace
+{% endblock title %}
+
+{% block content %}
+<div class="book-marketplace">
+    <section class="modal-sec">
+        <!-- Button to Trigger Book Listing Modal -->
+        <button type="button" class="btn btn-warning listbook mt-4" data-toggle="modal" data-target="#ListBookModal">
+            List a Book
+        </button>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="ListBookModal" tabindex="-1" role="dialog" aria-labelledby="ListBookModal" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center" id="ListBookModal"> List a Book </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Modal Content -->
+                    <div class="modal-body">
+                        <div class="md-form mb-4">
+                            <select class="form-control search-slt">
+                                <option> Select the book topic / subject... </option>
+                                <option> Accountancy & Taxation </option>
+                                <option> Advertising, Marketing & Public Relations </option>
+                                <option> Animals & Veterinary Science </option>
+                                <option> Art, Craft & Design </option>
+                                <option> Banking & Financial Services </option>
+                                <option> Biological, Chemical & Pharmaceutical Science </option>
+                                <option> Biomedical Technologies & Medtech </option>
+                                <option> Business Management & Human Resources </option>
+                                <option> Clerical & Administration </option>
+                                <option> Community & Voluntary </option>
+                                <option> Computers & ICT </option>
+                                <option> Construction, Architecture & Property </option>
+                                <option> Earth & Environment </option>
+                                <option> Education & Teaching </option>
+                                <option> Engineering, Manufacturing & Energy </option>
+                                <option> Farming, Horticulture & Forestry </option>
+                                <option> Fashion & Beauty </option>
+                                <option> Food & Beverages </option>
+                                <option> Government, Politics & EU </option>
+                                <option> Healthcare </option>
+                                <option> History, Culture & Languages </option>
+                                <option> Insurance </option>
+                                <option> Law & Legal </option>
+                                <option> Leisure, Sport & Fitness </option>
+                                <option> Maritime, Fishing & Aquaculture </option>
+                                <option> Media, Film & Publishing </option>
+                                <option> Music & Performing Arts </option>
+                                <option> Physics, Mathematics & Space Science </option>
+                                <option> Psychology & Social Care </option>
+                                <option> Sales, Retail & Purchasing </option>
+                                <option> Security, Defence & Law Enforcement </option>
+                                <option> Tourism & Hospitality </option>
+                                <option> Transport & Logistics </option>
+                            </select>
+                        </div>
+                        <div class="md-form mb-4">
+                            <input type="text" id="bookList-Title" class="form-control validate" placeholder="Title...">
+                        </div>
+                        <div class="md-form mb-4">
+                            <input type="email" id="bookList-Author" class="form-control validate" placeholder="Author...">
+                        </div>
+                        <div class="md-form mb-4">
+                            <input type="password" id="bookList-Price" class="form-control validate" placeholder="Price...">
+                        </div>
+                        <div class="md-form mb-4">
+                            <select class="form-control search-slt" id="bookList-Quality">
+                                <option> Select the book quality... </option>
+                                <option> Pristine Quality </option>
+                                <option> High Quality </option>
+                                <option> Moderate Quality </option>
+                                <option> Low Quality </option>
+                                <option> Very Low Quality </option>
+                            </select>
+                        </div>
+                        <div class="md-form mb-4">
+                            <input type="password" id="bookList-ContactDetails" class="form-control validate" placeholder="Contact Email / Phone Number...">
+                        </div>
+                        <div class="custom-file mb-4">
+                            <input type="file" class="custom-file-input" id="customFile">
+                            <label class="custom-file-label" for="customFile"> Upload an image of the book... </label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"> Close </button>
+                        <button type="button" class="btn btn-primary"> List Book </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Book Listings Search Bar -->
+    <section class="search-sec">
+        <div class="container">
+            <form action="#" method="post" novalidate="novalidate">
+                <div class="row">
+                    <div class="col-md-10 offset-md-3">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0 mt-4">
+                                <select class="form-control search-slt" id="exampleFormControlSelect1">
+                                    <option> Select the topic / subject... </option>
+                                    <option> Accountancy & Taxation </option>
+                                    <option> Advertising, Marketing & Public Relations </option>
+                                    <option> Animals & Veterinary Science </option>
+                                    <option> Art, Craft & Design </option>
+                                    <option> Banking & Financial Services </option>
+                                    <option> Biological, Chemical & Pharmaceutical Science </option>
+                                    <option> Biomedical Technologies & Medtech </option>
+                                    <option> Biomedical Technologies & Medtech </option>
+                                    <option> Business Management & Human Resources </option>
+                                    <option> Clerical & Administration </option>
+                                    <option> Community & Voluntary </option>
+                                    <option> Computers & ICT </option>
+                                    <option> Construction, Architecture & Property </option>
+                                    <option> Earth & Environment </option>
+                                    <option> Education & Teaching </option>
+                                    <option> Engineering, Manufacturing & Energy </option>
+                                    <option> Farming, Horticulture & Forestry </option>
+                                    <option> Fashion & Beauty </option>
+                                    <option> Food & Beverages </option>
+                                    <option> Government, Politics & EU </option>
+                                    <option> Healthcare </option>
+                                    <option> History, Culture & Languages </option>
+                                    <option> Insurance </option>
+                                    <option> Law & Legal </option>
+                                    <option> Leisure, Sport & Fitness </option>
+                                    <option> Maritime, Fishing & Aquaculture </option>
+                                    <option> Media, Film & Publishing </option>
+                                    <option> Music & Performing Arts </option>
+                                    <option> Physics, Mathematics & Space Science </option>
+                                    <option> Psychology & Social Care </option>
+                                    <option> Sales, Retail & Purchasing </option>
+                                    <option> Security, Defence & Law Enforcement </option>
+                                    <option> Tourism & Hospitality </option>
+                                    <option> Transport & Logistics </option>
+                                </select> 
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0 mt-4">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Enter book name or author..." aria-label="Search">
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12 p-0 mt-4">
+                                <button type="button" class="btn btn-primary wrn-btn">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <div class="container marketplace">
+        <!-- Row 1 -->
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="card mt-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book1.jpg' %}" alt="Software Engineering Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Software Engineering (6th Edition) </h5>
+                        <h6 class="card-text text-center"> Ian Sommerville </h6>
+                        <h6 class="card-text text-center"> Price: €30 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mt-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book2.jpg' %}" alt="Housing Law, Rights & Policy Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Housing Law, Rights & Policy </h5>
+                        <h6 class="card-text text-center"> Padraic Kenna </h6>
+                        <h6 class="card-text text-center"> Price: €55 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mt-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book3.jpg' %}" alt="Business Accounting Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Business Accounting (14th Edition) </h5>
+                        <h6 class="card-text text-center"> Frank Wood </h6>
+                        <h6 class="card-text text-center"> Price: €20 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mt-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book4.jpg' %}" alt="The Future of Software Quality Assurance Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> The Future of Software Quality Assurance </h5>
+                        <h6 class="card-text text-center"> Stephan Goericke </h6>
+                        <h6 class="card-text text-center"> Price: €25 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row 2 -->
+        <div class="row mt-5">
+            <div class="col-sm-3">
+                <div class="card book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book5.jpg' %}" alt="Modernising Irish Government Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Modernising Irish Government </h5>
+                        <h6 class="card-text text-center"> Neil Collins </h6>
+                        <h6 class="card-text text-center"> Price: €20 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book6.jpg' %}" alt="Macroeconomics Book - An Irish and European Perspective">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Macroeconomics - An Irish and European Perspective </h4>
+                        <h6 class="card-text text-center"> Anthony J. Leddin </h6>
+                        <h6 class="card-text text-center"> Price: €35 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book7.jpg' %}" alt="Geometrical Drawing for Carpentry and Joinery Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Geometrical Drawing for Carpentry and Joinery </h4>
+                        <h6 class="card-text text-center"> John J. O'Connor </h6>
+                        <h6 class="card-text text-center"> Price: €20 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book8.jpg' %}" alt="An Introduction to Nursing Book - Theory and Practice">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> An Introduction to Nursing - Theory and Practice </h4>
+                        <h6 class="card-text text-center"> Mary Henry </h6>
+                        <h6 class="card-text text-center"> Price: €15 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Row 3 -->
+        <div class="row mt-5">
+            <div class="col-sm-3">
+                <div class="card mb-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book9.jpg' %}" alt="Complete Care Skills Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Complete Care Skills </h4>
+                        <h6 class="card-text text-center"> Geraldine Power </h6>
+                        <h6 class="card-text text-center"> Price: €10 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book10.jpg' %}" alt="Step by Step Databases Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Step by Step Databases </h4>
+                        <h6 class="card-text text-center"> Alan Dillon </h6>
+                        <h6 class="card-text text-center"> Price: €20 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book11.jpg' %}" alt="Retailing in Ireland Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Retailing in Ireland </h4>
+                        <h6 class="card-text text-center"> Edmund O'Callaghan </h6>
+                        <h6 class="card-text text-center"> Price: €20 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="card mb-5 book-card">
+                    <img class="card-img-top img-fluid" src="{% static 'images/book12.jpg' %}" alt="Sociology of Ireland Book">
+                    <div class="card-block">
+                        <h5 class="card-title text-center"> Sociology of Ireland </h4>
+                        <h6 class="card-text text-center"> Perry Share </h6>
+                        <h6 class="card-text text-center"> Price: €30 </h5>
+                        <div class="d-flex justify-content-center">
+                            <button type="button" class="btn btn-info mb-3"> View Listing </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

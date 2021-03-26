@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+delete post
+
+{% endblock title %}
+
+{% block content %}
+<div class="container">
+    {% if messages %}
+        {% for message in messages %}
+            {% if 'warning' in message.tags %}
+                <div class="alert alert-danger">
+                        {{message}}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    {% if not messages %}
+        <div class="callout callout-danger">
+            <h3> Delete post? </h3>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <p> Are you sure you want to delete your post? </p>
+                <button type='submit' class="btn btn-danger">Delete </button>
+            </form>
+        </div>
+    {% endif %} 
+</div>
+{% endblock content %}
+
+

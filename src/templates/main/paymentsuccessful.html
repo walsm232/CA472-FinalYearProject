@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Payment Successful
+{% endblock title %}
+
+{% block content %}
+<!-- Successful Payment Card -->
+<div class="payment-success">
+    <div class="col d-flex justify-content-center">
+        <div class="card card-pay h-75">
+            <img class="card-img-top" src="../../static/images/Payment-Successful.gif">
+            <div class="card-body">
+                <hr>
+                <h5 class="card-title text-center"> Payment Successful </h5>
+                <p class="card-text text-center"> Your payment for tutoring services was successful. </p>
+                <p class="card-text text-center"> This will be displayed on your bank statement as: </p>
+                <p class="card-text text-center"> STUDENT NETWORK LTD. </p>
+                <div class="col text-center">
+                    <a href="/tutoring" class="btn btn-primary"> Back </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+
+<!-- Script to return message in Console when a document has loaded correctly -->
+<script>
+$(document).ready(function(){
+    console.log('Page has loaded correctly')
+})
+</script>
+
+{% endblock scripts %}

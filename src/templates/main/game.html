@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Game
+{% endblock title %}
+
+{% block content %}
+<div class="container py-4">
+    <header class="text-center">
+        <h1 class="display-6 font-weight-bold"> Reaction Game </h1>
+        <p class="font-italic text-muted mb-0"> We know just how tough it is to work in front of a screen all the time. </p>
+        <p class="font-italic text-muted mb-0"> Test your reactions and help keep your focus throughout the day! </p>
+    </header>
+</div>
+
+
+<!-- The game below has been embedded in order for students to be able to test their reactions and maintain focus throughout the day. -->
+
+<!-- Play.iDevGames.co.uk Responsive Embed Code for Reaction -->
+<script>
+    window.onload = function() {
+        var thegamelink = "https://play.idevgames.co.uk/embed/reaction";
+        var ref = document.referrer;
+        var theurl = document.referrer;
+        ref = ref.substring(ref.indexOf("://") + 3);
+        ref = ref.split("/")[0];
+        if(ref == "my-ga.me"){
+        theurl = "true"
+        } else {
+            theurl = "false"
+        } 
+        document.getElementById("embededGame").src = thegamelink+"/"+theurl+"?url="+window.location.href;
+    }
+</script>
+<div style="position: relative;height: 0;overflow: hidden;padding-bottom: 56.25%;">
+    <iframe id="embededGame" src="https://play.idevgames.co.uk/embed/reaction" scrolling="no" seamless="seamless" frameBorder="0" style="position: absolute;top:0;left: 0;width: 100%;height: 75%;">Browser not compatible.</iframe>
+</div>
+<!-- End Embed Code -->
+
+{% endblock content %}
