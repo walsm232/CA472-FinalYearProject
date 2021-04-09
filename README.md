@@ -21,6 +21,7 @@ We chose to develop this as we believe that the original Facebook model for exam
     - Install Stripe using `pip install stripe` in a terminal
     - Install Django Admin Honeypot using `pip install django-admin-honeypot` in a terminal
     - Install Bootstrap Admin using `pip install bootstrap-admin` in a terminal
+- Navigate to the `src`directory in your terminal and run `python manage.py runserver` or `python3 manage.py runserver` depending on which Python version you are using.
 
 ## Features
 **Networking**
