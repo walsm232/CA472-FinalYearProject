@@ -1,4 +1,5 @@
 <h1> <div align="center"> CA472 Enterprise Computing Team Project </div> </h1>
+<h2> <div align="center"> Grade: 72% </div> </h2>
 
 <h3> <div align="center"> Google Cloud Demo </div> </h3>
 <p> <div align="center"> https://student-network-308619.nw.r.appspot.com/ </div> </p>
